@@ -20,3 +20,35 @@
         transform: rotate(360deg);
     }
 }
+
+.cityname {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    border-bottom: 1px solid black;
+}
+
+.cityname h3 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+}
+
+.locationicon {
+    width: 10px;
+
+}
+
+.weatherdesc {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 10px;
+}
+
+.detaildesc {
+    color: rgb(238, 105, 16);
+}

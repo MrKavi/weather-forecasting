@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import "./style.css";
+import Image from 'next/image';
 
 const Weather = () => {
   const [city, setCity] = useState('');
@@ -27,10 +28,14 @@ const Weather = () => {
       }
     } catch (error) {
       console.error("Error fetching weather data:", error);
-      setError("Please check your city name it may not be available...");
+      setError("An unexpected error occurred.");
     } finally {
       setLoading(false);
     }
+  };
+
+  const convertKelvinToCelsius = (kelvin) => {
+    return (kelvin - 273.15).toFixed(2);
   };
 
   const containerStyle = { padding: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' };
@@ -54,10 +59,37 @@ const Weather = () => {
       {error && <div style={errorStyle}>{error}</div>}
       {weather && (
         <div style={weatherContainerStyle}>
-          <h2>{weather.name}</h2>
-          <p>{weather.weather[0].description}</p>
-          <p>Temperature: {weather.main.temp}°C</p>
-          <p>Humidity: {weather.main.humidity}%</p>
+          <div className='cityname'>
+            <h3><Image
+              src="/location.png"
+              width={18}
+              height={25}
+              alt="location"
+            /> {weather.name}, {weather.sys.country}</h3>
+            <p> {convertKelvinToCelsius(weather.main.temp)}°C <span className='detaildesc'>{weather.weather[0].description}</span></p>
+          </div>
+          <div className='weatherdesc'>
+            <p>Feels like: </p>
+            <span>{convertKelvinToCelsius(weather.main.feels_like)}°C</span>
+          </div>
+          <div className='weatherdesc'>
+            <p>Humidity: </p>
+            <span>{weather.main.humidity}%</span>
+          </div>
+
+          <div className='weatherdesc'>
+            <p>Pressure: </p>
+            <span>{weather.main.pressure} <span className='detaildesc'>hPa</span></span>
+          </div>
+          <div className='weatherdesc'>
+            <p>Sea Level: </p>
+            <span>{weather.main.sea_level} <span className='detaildesc'>hPa</span></span>
+          </div>
+          <div className='weatherdesc'>
+            <p>Ground Level: </p>
+            <span>{weather.main.grnd_level} <span className='detaildesc'>hPa</span></span>
+          </div>
+
         </div>
       )}
     </div>

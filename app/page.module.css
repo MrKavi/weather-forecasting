@@ -111,14 +111,14 @@ a.secondary {
   grid-row-start: 3;
   display: flex;
   gap: 24px;
-
+  color: white !important;
 }
 
 .footer a {
   display: flex;
   align-items: center;
   gap: 8px;
-  color: white;
+  color: white !important;
 }
 
 .footer img {
@@ -140,6 +140,7 @@ a.secondary {
   .footer a:hover {
     text-decoration: underline;
     text-underline-offset: 4px;
+    color: white;
   }
 }
 
@@ -182,6 +183,7 @@ a.secondary {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    color: white;
   }
 }
 
