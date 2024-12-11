@@ -5,7 +5,7 @@ import Weather from "./components/Weather";
 export default function Home() {
   return (
     <div className={styles.page} >
-      {/* <div className={styles.backgroundImage}> */}
+
       <main className={styles.main}>
         <h1>Weather Forecast</h1> <Weather />
       </main>
