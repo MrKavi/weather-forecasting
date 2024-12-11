@@ -35,11 +35,18 @@
   display: flex;
   flex-direction: column;
   gap: 32px;
+  align-items: center;
+  justify-content: center;
   grid-row-start: 2;
 }
 
 .main h1 {
+  width: 100%;
   color: white;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+
 }
 
 .main ol {
@@ -148,6 +155,9 @@ a.secondary {
 
   .main h1 {
     color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .main ol {
